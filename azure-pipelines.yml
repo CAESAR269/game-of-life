@@ -13,8 +13,11 @@ steps:
 - task: Maven@4
   inputs:
     mavenPomFile: 'pom.xml'
-    goals: 'clean package'
     publishJUnitResults: false
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 - task: dependency-check-build-task@6
