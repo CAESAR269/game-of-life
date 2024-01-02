@@ -14,11 +14,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'clean package'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
+    publishJUnitResults: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
 - task: dependency-check-build-task@6
