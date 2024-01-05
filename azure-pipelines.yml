@@ -20,19 +20,20 @@ steps:
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
-    sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
 
 - task: SonarQubePrepare@5
   inputs:
-    SonarQube: 'Sonarqube'
-    scannerMode: 'Other'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s'
+    cliProjectName: 'gol'
+    cliSources: '.'
     extraProperties: |
-      # Additional properties that will be passed to the scanner,
+      # Additional properties that will be passed to the scanner, 
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
-      sonar.projectKey=DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s
-
+      sonar.java.binaries=
 - task: Bash@3
   inputs:
     targetType: 'inline'
