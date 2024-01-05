@@ -20,8 +20,21 @@ steps:
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: false
-- task: dependency-check-build-task@6
+
+- task: SonarQubePrepare@5
   inputs:
-    projectName: 'gol'
-    scanPath: './'
-    format: 'ALL'
+    SonarQube: 'Sonarqube'
+    scannerMode: 'Other'
+    extraProperties: |
+      # Additional properties that will be passed to the scanner,
+      # Put one key=value per line, example:
+      # sonar.exclusions=**/*.bin
+      sonar.projectKey=DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s
+
+- task: SonarQubeAnalyze@5
+  inputs:
+    jdkversion: 'JAVA_HOME_17_X64'
+
+- task: SonarQubePublish@5
+  inputs:
+    pollingTimeoutSec: '300'
