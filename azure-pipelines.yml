@@ -24,7 +24,7 @@ steps:
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'Sonarqube'
-    scannerMode: 'Other'
+    scannerMode: 'Maven'
     extraProperties: |
       # Additional properties that will be passed to the scanner,
       # Put one key=value per line, example:
