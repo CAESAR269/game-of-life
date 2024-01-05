@@ -32,6 +32,7 @@ steps:
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s
+      sonar.java.binaries=
 - task: Bash@3
   inputs:
     targetType: 'inline'
