@@ -25,22 +25,16 @@ steps:
 - task: SonarQubePrepare@5
   inputs:
     SonarQube: 'Sonarqube'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'Other'
     extraProperties: |
-      # Additional properties that will be passed to the scanner, 
+      # Additional properties that will be passed to the scanner,
       # Put one key=value per line, example:
       # sonar.exclusions=**/*.bin
       sonar.projectKey=DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s
-      sonar.java.binaries=
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: 'sudo apt install openjdk-17-jdk'
 
 - task: SonarQubeAnalyze@5
   inputs:
-    jdkversion: 'JAVA_HOME_17_X64'
+    jdkversion: 'JAVA_HOME'
 
 - task: SonarQubePublish@5
   inputs:
