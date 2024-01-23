@@ -10,32 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Maven@4
+- task: Bash@3
   inputs:
-    mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
-    effectivePomSkip: false
-    sqMavenPluginVersionChoice: 'latest'
-
-- task: SonarQubePrepare@5
-  inputs:
-    SonarQube: 'Sonarqube'
-    scannerMode: 'Other'
-    extraProperties: |
-      # Additional properties that will be passed to the scanner,
-      # Put one key=value per line, example:
-      # sonar.exclusions=**/*.bin
-      sonar.projectKey=DevSecOps_DevSecOps_AYzZ-T_ULLc6J7PQBr-s
-
-- task: SonarQubeAnalyze@5
-  inputs:
-    jdkversion: 'JAVA_HOME'
-
-- task: SonarQubePublish@5
-  inputs:
-    pollingTimeoutSec: '300'
+    targetType: 'inline'
+    script: 'mvn clean packege'
